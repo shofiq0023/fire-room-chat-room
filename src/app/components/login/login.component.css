@@ -1,0 +1,34 @@
+input {
+	border-radius: 10px;
+	padding: 12px 12px;
+	margin: 10px 0;
+	background: var(--bg-color-light);
+	border: 0;
+	color: white;
+}
+.submit-btn {
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	border-radius: 10px;
+	margin-bottom: 5px;
+}
+.other-login-btn {
+	background: var(--bg-color-light);
+	margin: 10px 0;
+	padding: 10px 10px;
+	text-align: left;
+	font-size: 18px;
+	color: white;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+}
+.other-login-btn .google {
+	color: #EA4335;
+	font-size: 26px;
+}
+.other-login-btn .facebook {
+	color: #4267B3;
+	font-size: 26px;
+}

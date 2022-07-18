@@ -1,4 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800;900&display=swap");
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+	--bg-color: #15202B;
+	--bg-color-light: #172D43;
+	--red-color: #ED553B;
+	--light-blue: #3CAEA3;
+	--message-send-color: #173F5F;
+	--message-recieve-color: #0D1317;
+	--send-button-color: #20639B;
+	--send-icon-color: #76B3E5;
+}
+
+body {
+	font-family: "Nunito", sans-serif;
+	background: #0E0F11;
+}
+ul, ol {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+
+.main {
+	width: 500px;
+	height: 100vh;
+	background: var(--bg-color);
+	margin: 0 auto;
+}
+.text-red {
+	color: var(--red-color);
+}

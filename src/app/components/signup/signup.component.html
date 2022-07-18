@@ -1,0 +1,18 @@
+<div>
+	<app-topbar></app-topbar>
+	<div class="container">
+		<a routerLink="/login" class="btn btn-primary mb-4">
+			<fa-icon class="me-2" [icon]="faLeft"></fa-icon> Login
+		</a>
+
+		<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="form">
+			<input class="form-control" name="fullName" type="text" placeholder="fullname..." ngModel required>
+			<input class="form-control" name="email" type="email" placeholder="email..." ngModel required>
+			<input class="form-control" name="password" type="password" placeholder="password..." ngModel required>
+			<input class="form-control" name="confirmPassword" type="password" placeholder="confirm password.." ngModel required>
+			<button class="btn btn-primary submit-btn w-100" type="submit">Sign up</button>
+		</form>
+		
+	</div>
+	
+</div>
