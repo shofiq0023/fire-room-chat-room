@@ -13,3 +13,6 @@ input {
 	border-radius: 10px;
 	margin-bottom: 5px;
 }
+.error {
+	border: 1px solid var(--red-color);
+}

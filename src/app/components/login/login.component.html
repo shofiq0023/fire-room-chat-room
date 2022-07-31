@@ -1,20 +1,28 @@
 <div>
 	<app-topbar></app-topbar>
 	<div class="container">
-		<form class="form">
-			<input class="form-control" type="text" placeholder="email...">
-			<input class="form-control" type="password" placeholder="password...">
-			<button class="btn btn-primary w-100 submit-btn" type="submit">Login</button>
+		<form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" ngNativeValidate>
+			<input class="form-control" name="email" type="text" placeholder="email..." required>
+			<input class="form-control" name="password" type="password" placeholder="password..." minlength="6" required>
+			<p *ngIf="errorMsg.length > 0" class="text-danger">{{errorMsg}}</p>
+			<button class="btn btn-primary w-100 submit-btn" type="submit">
+				<span *ngIf="!loading">Login</span>
+				<span *ngIf="loading">
+					<div class="spinner-grow spinner-grow-sm" role="status">
+						<span class="visually-hidden">Loading...</span>
+					  </div>
+				</span>
+			</button>
 		</form>
 		<a routerLink="/signup" class="ps-2">Create an account</a>
 		
 		<div class="other-signup mt-5">
-			<p class="text-center text-white mt-4">Other login options</p>
+			<p class="text-center text-white mt-4">Other options</p>
 			<button class="btn other-login-btn w-100" type="button" (click)="googleLogin()">
-				<fa-icon class="ms-2 me-4 google" [icon]="faGoogle"></fa-icon> Login with Google
+				<fa-icon class="ms-2 me-4 google" [icon]="faGoogle"></fa-icon> Login/Signup with Google
 			</button>
 			<button class="btn other-login-btn w-100" type="button" (click)="facebookLogin()">
-				<fa-icon class="ms-2 me-4 facebook" [icon]="faFacebook"></fa-icon> Login with Facebook
+				<fa-icon class="ms-2 me-4 facebook" [icon]="faFacebook"></fa-icon> Login/Signup with Facebook
 			</button>
 		</div>
 	</div>

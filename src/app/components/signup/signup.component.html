@@ -5,13 +5,49 @@
 			<fa-icon class="me-2" [icon]="faLeft"></fa-icon> Login
 		</a>
 
-		<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="form">
-			<input class="form-control" name="fullName" type="text" placeholder="fullname..." ngModel required>
-			<input class="form-control" name="email" type="email" placeholder="email..." ngModel required>
-			<input class="form-control" name="password" type="password" placeholder="password..." ngModel required>
-			<input class="form-control" name="confirmPassword" type="password" placeholder="confirm password.." ngModel required>
-			<button class="btn btn-primary submit-btn w-100" type="submit">Sign up</button>
+		<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="form" ngNativeValidate>
+			<input class="form-control" name="fullName" type="text" placeholder="fullname..." ngModel [required]="true">
+			<input class="form-control" name="email" type="email" placeholder="email..." ngModel [required]="true">
+			<input 
+				class="form-control" 
+				[ngClass]="{'error': password != conPass}" 
+				name="password" 
+				type="password" 
+				placeholder="password..." 
+				ngModel 
+				[(ngModel)]="password" 
+				minlength="6"
+				[required]="true">
+			<input 
+				class="form-control" 
+				[ngClass]="{'error': password != conPass}" 
+				name="confirmPassword" 
+				type="password" 
+				placeholder="confirm password.." 
+				ngModel 
+				[(ngModel)]="conPass" 
+				minlength="6"
+				[required]="true">
+			<p *ngIf="errorMsg.length > 0" class="text-danger">{{errorMsg}}</p>
+			<button class="btn btn-primary submit-btn w-100" name="submit" type="submit" [disabled]="password != conPass">
+				<span *ngIf="loading">
+					<div class="spinner-grow spinner-grow-sm" role="status">
+						<span class="visually-hidden">Loading...</span>
+					  </div>
+				</span>
+				<span *ngIf="!loading">Submit</span>
+			</button>
 		</form>
+
+		<div class="other-signup mt-5 pb-5">
+			<p class="text-center text-white mt-4">Other signup options</p>
+			<button class="btn other-login-btn w-100" type="button" (click)="googleSignup()">
+				<fa-icon class="ms-2 me-4 google" [icon]="faGoogle"></fa-icon> Signup with Google
+			</button>
+			<button class="btn other-login-btn w-100" type="button" (click)="facebookSignup()">
+				<fa-icon class="ms-2 me-4 facebook" [icon]="faFacebook"></fa-icon> Signup with Facebook
+			</button>
+		</div>
 		
 	</div>
 	

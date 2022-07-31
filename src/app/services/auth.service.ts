@@ -9,6 +9,7 @@ import {
 	signInWithPopup,
 	signOut
 } from '@angular/fire/auth';
+import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +18,21 @@ export class AuthService {
 
   constructor(private fireAuth: Auth) { }
 
-  loginWithGoogle() {
+  signUpWithGoogle() {
 	return signInWithPopup(this.fireAuth, new GoogleAuthProvider());
   }
 
-  loginWithFacebook() {
+
+  signUpWithFacebook() {
 	return signInWithPopup(this.fireAuth, new FacebookAuthProvider());
+  }
+
+  login(form: NgForm) {
+	return signInWithEmailAndPassword(this.fireAuth, form.value.email, form.value.password);
+  }
+
+  register(form: NgForm) {
+	return createUserWithEmailAndPassword(this.fireAuth, form.value.email, form.value.password);
   }
 
   logout() {

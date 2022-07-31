@@ -13,7 +13,7 @@
 
 body {
 	font-family: "Nunito", sans-serif;
-	background: #0E0F11;
+	background: var(--bg-color);
 }
 ul, ol {
 	list-style: none;
@@ -25,9 +25,37 @@ a {
 .main {
 	width: 500px;
 	height: 100vh;
-	background: var(--bg-color);
 	margin: 0 auto;
 }
 .text-red {
 	color: var(--red-color);
+}
+.other-login-btn {
+	background: var(--bg-color-light);
+	margin: 10px 0;
+	padding: 10px 10px;
+	text-align: left;
+	font-size: 18px;
+	color: white;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+}
+.other-login-btn .google {
+	color: #EA4335;
+	font-size: 26px;
+}
+.other-login-btn .facebook {
+	color: #4267B3;
+	font-size: 26px;
+}
+.other-login-btn:hover {
+	color: white;
+	background-color: var(--message-send-color);
+}
+
+@media only screen and (max-width: 600px) {
+	.main {
+		width: 100%;
+	}
 }
